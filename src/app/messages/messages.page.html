@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      Messages
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item class="post-container" *ngIf="post" lines="none">
+  <ion-thumbnail slot="start">
+    <img src="{{ post.pictureURLs[0] }}" />
+  </ion-thumbnail>
+
+  <div>
+    <ion-row class="ion-align-items-center">
+      <p class="post-title">
+        {{ post.title }}
+      </p>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <p class="post-description">
+        {{ post.description }}
+      </p>
+    </ion-row>
+  </div>
+</ion-item>
+
+<ion-content #content>
+  <ion-list id="chat-container" class="ion-padding">
+    <ion-row
+      *ngFor="let message of messages; let i = index;"
+      class="full no-padding"
+    >
+      <ion-col
+        class="no-padding chat-row"
+        [ngClass]="{ 'reverse': message.isCurrentUser}"
+      >
+        <div class="avatar-parent">
+          <div class="avatar-border"></div>
+
+          <img
+            *ngIf="message.user.pictureURL"
+            [src]="message.user.pictureURL"
+            class="avatar"
+          />
+
+          <img
+            *ngIf="!message.user.pictureURL"
+            src="..\..\assets\icon\favicon.png"
+            class="avatar"
+          />
+        </div>
+
+        <div
+          [ngClass]="{ 'name-row-parent-right': message.isCurrentUser,'name-row-parent-left': !message.isCurrentUser}"
+        >
+          <div
+            class="no-padding"
+            [ngClass]="{ 'name-row-right': message.isCurrentUser,'name-row-left': !message.isCurrentUser}"
+          >
+            {{ message.user.name }}
+
+            <div
+              [ngClass]="{ 'reverse-arc-right': message.isCurrentUser,'reverse-arc-left': !message.isCurrentUser}"
+            >
+              <div
+                [ngClass]="{ 'reverse-arc-color-right': message.isCurrentUser,'reverse-arc-color-left': !message.isCurrentUser}"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="no-padding"
+            [ngClass]="{ 'message-row-right': message.isCurrentUser,'message-row-left': !message.isCurrentUser}"
+          >
+            <ion-text no-margin class="text">{{ message.content }}</ion-text>
+          </div>
+
+          <p
+            [ngClass]="{ 'time-ago-right': message.isCurrentUser,'time-ago-left': !message.isCurrentUser}"
+          >
+            {{ message.timeAgo }}
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img
+        *ngIf="authService.user.pictureURL"
+        src="{{ authService.user.pictureURL }}"
+      />
+
+      <img
+        *ngIf="!authService.user.pictureURL"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-avatar>
+
+    <ion-textarea
+      [(ngModel)]="messageContent"
+      rows="1"
+      placeholder="Send a message"
+    ></ion-textarea>
+
+    <ion-button slot="end" fill="clear" (click)="sendMessage()">
+      <ion-icon *ngIf="!sendingMessage" name="send-outline"></ion-icon>
+      <ion-spinner *ngIf="sendingMessage"></ion-spinner>
+    </ion-button>
+  </ion-item>
+</ion-footer>

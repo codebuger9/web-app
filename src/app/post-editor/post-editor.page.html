@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()"> Cancel </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Title
+      </ion-label>
+
+      <ion-input
+        type="text"
+        [(ngModel)]="post.title"
+        placeholder="Enter title"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" *ngIf="post.type == 1 || post.type == 2">
+        Description
+      </ion-label>
+
+      <ion-label position="stacked" *ngIf="post.type == 0">
+        Description (Optional)
+      </ion-label>
+
+      <ion-textarea
+        rows="4"
+        [(ngModel)]="post.description"
+        placeholder="Enter description"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked" *ngIf="post.type == 0">
+        Price Range
+      </ion-label>
+
+      <ion-label position="stacked" *ngIf="post.type == 1 || post.type == 2">
+        Price Range (Optional)
+      </ion-label>
+
+      <ion-row>
+        <ion-col size="6">
+          <ion-input
+            type="number"
+            placeholder="Minimum value"
+            [(ngModel)]="post.priceRange.lowerValue"
+          ></ion-input>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-input
+            type="number"
+            placeholder="Maximum value"
+            [(ngModel)]="post.priceRange.higherValue"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-button
+        [disabled]="post.title == '' 
+          || (post.type == 0 && (post.priceRange.higherValue == undefined || post.priceRange.higherValue == 0 || post.priceRange.lowerValue == undefined || post.priceRange.lowerValue == 0 || post.priceRange.lowerValue >= post.priceRange.higherValue))
+          || ((post.type == 1 || post.type == 2) && (post.description == ''))"
+        (click)="updatePost()"
+      >
+        Update post
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

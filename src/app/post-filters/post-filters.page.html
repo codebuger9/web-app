@@ -1,0 +1,243 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-icon name="brush"></ion-icon>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button class="next" (click)="next()"> Next </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-row class="selected-picture">
+  <img id="main-picture" src="{{ selectedPicture }}" />
+</ion-row>
+
+<ion-content>
+  <ion-row class="filters-row" align-items-center>
+    <div class="thumnails">
+      <div class="list-thumbnail">
+        <div class="img-thumb" (click)="clearFilter()">
+          <ion-col text-center>
+            <p class="filter-name" id="">Normal</p>
+          </ion-col>
+
+          <img src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('_1977')">
+          <ion-col text-center>
+            <p class="filter-name" id="_1977">1977</p>
+          </ion-col>
+
+          <img class="_1977" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('aden')">
+          <ion-col text-center>
+            <p class="filter-name" id="aden">Aden</p>
+          </ion-col>
+
+          <img class="aden" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('brannan')">
+          <ion-col text-center>
+            <p class="filter-name" id="brannan">Brannan</p>
+          </ion-col>
+
+          <img class="brannan" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('brooklyn')">
+          <ion-col text-center>
+            <p class="filter-name" id="brooklyn">Brooklyn</p>
+          </ion-col>
+
+          <img class="brooklyn" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('clarendon')">
+          <ion-col text-center>
+            <p class="filter-name" id="clarendon">Clarendon</p>
+          </ion-col>
+
+          <img class="clarendon" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('earlybird')">
+          <ion-col text-center>
+            <p class="filter-name" id="earlybird">Earlybird</p>
+          </ion-col>
+
+          <img class="earlybird" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('gingham')">
+          <ion-col text-center>
+            <p class="filter-name" id="gingham">Gingham</p>
+          </ion-col>
+
+          <img class="gingham" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('hudson')">
+          <ion-col text-center>
+            <p class="filter-name" id="hudson">Hudson</p>
+          </ion-col>
+
+          <img class="hudson" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('inkwell')">
+          <ion-col text-center>
+            <p class="filter-name" id="inkwell">Inkwell</p>
+          </ion-col>
+
+          <img class="inkwell" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('kelvin')">
+          <ion-col text-center>
+            <p class="filter-name" id="kelvin">Kelvin</p>
+          </ion-col>
+
+          <img class="kelvin" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('lark')">
+          <ion-col text-center>
+            <p class="filter-name" id="lark">Lark</p>
+          </ion-col>
+
+          <img class="lark" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('lofi')">
+          <ion-col text-center>
+            <p class="filter-name" id="lofi">Lofi</p>
+          </ion-col>
+
+          <img class="lofi" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('maven')">
+          <ion-col text-center>
+            <p class="filter-name" id="maven">Maven</p>
+          </ion-col>
+
+          <img class="maven" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('mayfair')">
+          <ion-col text-center>
+            <p class="filter-name" id="mayfair">Mayfair</p>
+          </ion-col>
+
+          <img class="mayfair" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('moon')">
+          <ion-col text-center>
+            <p class="filter-name" id="moon">Moon</p>
+          </ion-col>
+
+          <img class="moon" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('nashville')">
+          <ion-col text-center>
+            <p class="filter-name" id="nashville">Nashville</p>
+          </ion-col>
+
+          <img class="nashville" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('perpetua')">
+          <ion-col text-center>
+            <p class="filter-name" id="perpetua">Perpetua</p>
+          </ion-col>
+
+          <img class="perpetua" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('reyes')">
+          <ion-col text-center>
+            <p class="filter-name" id="reyes">Reyes</p>
+          </ion-col>
+
+          <img class="reyes" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('rise')">
+          <ion-col text-center>
+            <p class="filter-name" id="rise">Rise</p>
+          </ion-col>
+
+          <img class="rise" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('slumber')">
+          <ion-col text-center>
+            <p class="filter-name" id="slumber">Slumber</p>
+          </ion-col>
+
+          <img class="slumber" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('stinson')">
+          <ion-col text-center>
+            <p class="filter-name" id="stinson">Stinson</p>
+          </ion-col>
+
+          <img class="stinson" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('toaster')">
+          <ion-col text-center>
+            <p class="filter-name" id="toaster">Toaster</p>
+          </ion-col>
+
+          <img class="toaster" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('valencia')">
+          <ion-col text-center>
+            <p class="filter-name" id="valencia">Valencia</p>
+          </ion-col>
+
+          <img class="valencia" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('walden')">
+          <ion-col text-center>
+            <p class="filter-name" id="walden">Walden</p>
+          </ion-col>
+
+          <img class="walden" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('willow')">
+          <ion-col text-center>
+            <p class="filter-name" id="willow">Willow</p>
+          </ion-col>
+
+          <img class="willow" src="{{ selectedPicture }}" />
+        </div>
+
+        <div class="img-thumb" (click)="selectFilter('xpro2')">
+          <ion-col text-center>
+            <p class="filter-name" id="xpro2">X Pro 2</p>
+          </ion-col>
+
+          <img class="xpro2" src="{{ selectedPicture }}" />
+        </div>
+      </div>
+    </div>
+  </ion-row>
+</ion-content>

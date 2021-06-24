@@ -1,0 +1,18 @@
+<div *ngIf="postsLoaded && posts.length == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p>There are no posts to be shown.</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-icon class="no-posts-icon" name="images-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="postsLoaded && posts.length > 0">
+  <post *ngFor="let post of posts" [isProfile]="isProfile" [post]="post">
+  </post>
+</div>

@@ -1,0 +1,259 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button size="small" fill="clear" (click)="openProfileActionSheet()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="2">
+      <img
+        *ngIf="user && user.pictureURL"
+        class="user-image"
+        src="{{ user ? user.pictureURL : '' }}"
+      />
+
+      <img
+        class="user-image"
+        *ngIf="user && !user.pictureURL"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="3">
+      <ion-row class="user-name-row ion-align-items-center">
+        <ion-col class="ion-text-center">
+          <p>{{ user ? user.name : '' }}</p>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="user-role-row ion-align-items-center">
+        <ion-col class="ion-text-center">
+          <p>Owner</p>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="7">
+      <ion-row class="ion-align-items-center">
+        <ion-col class="ion-text-center" size="4">
+          <div class="header-div">
+            <p class="header-value">{{ user ? user.postsCount : 0 }}</p>
+            <p>posts</p>
+          </div>
+        </ion-col>
+
+        <ion-col class="ion-text-center" size="4">
+          <div class="header-div">
+            <p class="header-value">0</p>
+            <p>customers</p>
+          </div>
+        </ion-col>
+
+        <ion-col class="ion-text-center" size="4">
+          <div class="header-div">
+            <p class="header-value">0</p>
+            <p>favorites</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-button
+      fill="outline"
+      class="edit-profile-button"
+      (click)="editProfile()"
+    >
+      Edit Profile
+    </ion-button>
+  </ion-row>
+
+  <ion-segment scrollable [(ngModel)]="type">
+    <ion-segment-button value="reviews">
+      Reviews
+    </ion-segment-button>
+
+    <!-- Only users with 'Administrator' level permission see this -->
+    <ion-segment-button *ngIf="user.permissionLevel == 0" value="mall">
+      Mall
+    </ion-segment-button>
+
+    <ion-segment-button value="shop">
+      Shop
+    </ion-segment-button>
+
+    <ion-segment-button value="posts">
+      Posts
+    </ion-segment-button>
+
+    <ion-segment-button value="offers">
+      Offers
+    </ion-segment-button>
+
+    <ion-segment-button value="packs">
+      Packs
+    </ion-segment-button>
+
+    <ion-segment-button value="cards">
+      Cards
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'reviews'">
+      <reviews [user]="user"></reviews>
+    </div>
+
+    <div *ngSwitchCase="'mall'">
+      <div *ngIf="mallLoaded && !mall">
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <p>You don't have an active mall.</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <ion-icon class="mall-icon" name="home-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <ion-button (click)="navigateToMallCreator()">
+              Create your mall
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <mall *ngIf="mallLoaded && mall" [isProfile]="true" [mall]="mall"></mall>
+    </div>
+
+    <div *ngSwitchCase="'shop'">
+      <div *ngIf="shopLoaded && !shop">
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <p>You don't have an active shop</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <ion-icon class="shop-icon" name="home-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <ion-button (click)="navigateToShopCreator()"
+              >Create your shop</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <shop *ngIf="shopLoaded && shop" [isProfile]="true" [shop]="shop"></shop>
+    </div>
+
+    <div *ngSwitchCase="'posts'">
+      <ion-segment
+        class="posts-segment"
+        scrollable
+        [(ngModel)]="postsDisplayType"
+      >
+        <ion-segment-button value="list">
+          <ion-icon name="list-outline"></ion-icon>
+        </ion-segment-button>
+
+        <ion-segment-button value="grid">
+          <ion-icon name="apps-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="postsDisplayType">
+        <div *ngSwitchCase="'list'">
+          <posts-slider [isProfile]="true" [user]="user"></posts-slider>
+        </div>
+
+        <div *ngSwitchCase="'grid'">
+          <posts-grid [isProfile]="true" [user]="user"></posts-grid>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'offers'">
+      <ion-segment scrollable [(ngModel)]="offerDisplayType">
+        <ion-segment-button value="received">
+          Received
+        </ion-segment-button>
+
+        <ion-segment-button value="sent">
+          Sent
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="offerDisplayType">
+        <div *ngSwitchCase="'received'">
+          <offers-received></offers-received>
+        </div>
+
+        <div *ngSwitchCase="'sent'">
+          <offers-sent></offers-sent>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'packs'">
+      <ion-segment scrollable [(ngModel)]="packType">
+        <ion-segment-button value="user-packs">
+          User packs
+        </ion-segment-button>
+
+        <ion-segment-button value="coins-packs">
+          Coins packs
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="packType">
+        <div *ngSwitchCase="'user-packs'">
+          <user-packs></user-packs>
+        </div>
+
+        <div *ngSwitchCase="'coins-packs'">
+          <coin-packs></coin-packs>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'cards'">
+      <ion-segment scrollable [(ngModel)]="cardType">
+        <ion-segment-button value="publication-cards">
+          Publication cards
+        </ion-segment-button>
+
+        <ion-segment-button value="distance-cards">
+          Distance cards
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="cardType">
+        <div *ngSwitchCase="'publication-cards'">
+          <publication-cards></publication-cards>
+        </div>
+
+        <div *ngSwitchCase="'distance-cards'">
+          <distance-cards></distance-cards>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-card #card>
+  <post-header [post]="post"></post-header>
+
+  <!-- Product -->
+  <div *ngIf="post.type == 0">
+    <post-images-slider [post]="post" [card]="card"></post-images-slider>
+
+    <post-buttons
+      [isProfile]="isProfile"
+      [post]="post"
+      [card]="card"
+    ></post-buttons>
+
+    <post-info [post]="post"></post-info>
+  </div>
+
+  <!-- Service and Request -->
+  <div *ngIf="post.type == 1 || post.type == 2">
+    <!-- No pictures to display -->
+    <div *ngIf="post.pictureURLs.length == 0">
+      <post-info [post]="post"></post-info>
+    </div>
+
+    <!-- At least one picture to display -->
+    <div *ngIf="post.pictureURLs.length > 0">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="8">
+          <post-info [post]="post"></post-info>
+        </ion-col>
+
+        <ion-col class="ion-text-center" size="4">
+          <img [src]="post.pictureURLs[0]" alt="" />
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <post-buttons
+      [isProfile]="isProfile"
+      [post]="post"
+      [card]="card"
+    ></post-buttons>
+  </div>
+</ion-card>

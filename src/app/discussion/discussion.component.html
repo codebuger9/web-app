@@ -1,0 +1,35 @@
+<ion-item
+  no-padding
+  lines="none"
+  (click)="navigateToMessages()"
+  [ngClass]="{unread: !discussion.read}"
+>
+  <ion-avatar slot="start">
+    <img *ngIf="user.pictureURL" src="{{ user.pictureURL }}" />
+    <img *ngIf="!user.pictureURL" src="..\..\assets\icon\favicon.png" />
+  </ion-avatar>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-left" size="1">
+      <div *ngIf="!discussion.read" class="circle"></div>
+    </ion-col>
+
+    <ion-col class="ion-text-left" size="11">
+      <ion-row class="ion-align-items-center">
+        <p class="post-title">
+          {{ discussion.postTitle }}
+        </p>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <p class="post-last-message">
+          {{ discussion.lastMessage ? discussion.lastMessage.content : '' }}
+        </p>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <p slot="end" class="time-ago">
+    {{ discussion.timeAgo }}
+  </p>
+</ion-item>

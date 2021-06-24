@@ -1,0 +1,44 @@
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">Select the pack that matches your needs!</p>
+  </ion-col>
+</ion-row>
+
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[0]"></user-pack>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[1]"></user-pack>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[2]"></user-pack>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[3]"></user-pack>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[4]"></user-pack>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <user-pack [pack]="packsService.userPacks[5]"></user-pack>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">
+      Each pack allows a maximum number of listings and a maximum duration of
+      exposure for each listing.
+    </p>
+  </ion-col>
+</ion-row>

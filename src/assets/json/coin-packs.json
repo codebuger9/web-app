@@ -1,0 +1,52 @@
+{
+  "coinPacks": [
+    {
+      "id": 1,
+      "name": "Plenty of Coins",
+      "pictureURL": "assets/images/coin packs/plenty-coins.png",
+      "type": 0,
+      "valueCount": 5000,
+      "price": 0.99
+    },
+    {
+      "id": 2,
+      "name": "Big Bag of Coins",
+      "pictureURL": "assets/images/coin packs/bag-coins.png",
+      "type": 0,
+      "valueCount": 50000,
+      "price": 1.99
+    },
+    {
+      "id": 3,
+      "name": "Plenty of Bags of Coins",
+      "pictureURL": "assets/images/coin packs/plenty-bags-coins.png",
+      "type": 0,
+      "valueCount": 100000,
+      "price": 2.99
+    },
+    {
+      "id": 4,
+      "name": "Plenty of Gems",
+      "pictureURL": "assets/images/coin packs/plenty-gems.png",
+      "type": 1,
+      "valueCount": 5000,
+      "price": 4.99
+    },
+    {
+      "id": 5,
+      "name": "Big Bag of Gems",
+      "pictureURL": "assets/images/coin packs/bag-gems.png",
+      "type": 1,
+      "valueCount": 50000,
+      "price": 7.99
+    },
+    {
+      "id": 6,
+      "name": "Plenty of Bags of Gems",
+      "pictureURL": "assets/images/coin packs/plenty-bags-gems.png",
+      "type": 1,
+      "valueCount": 100000,
+      "price": 12.99
+    }
+  ]
+}

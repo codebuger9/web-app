@@ -1,0 +1,113 @@
+<div *ngIf="!isProfile">
+  <ion-item no-padding class="post-buttons" lines="none">
+    <div slot="start">
+      <ion-button fill="clear" (click)="heartClick()">
+        <ion-icon
+          *ngIf="likeLoaded && !post.isLiked"
+          slot="icon-only"
+          name="heart"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="likeLoaded && post.isLiked"
+          slot="icon-only"
+          name="heart-red"
+        ></ion-icon>
+
+        <ion-spinner *ngIf="!likeLoaded"></ion-spinner>
+      </ion-button>
+
+      <ion-button fill="clear" (click)="showCommments()">
+        <ion-icon slot="icon-only" name="chatbox-ellipses-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" (click)="showDiscussion()">
+        <ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div slot="end">
+      <ion-button fill="clear" (click)="favoriteClick()">
+        <ion-icon
+          *ngIf="favoriteLoaded && !post.isFavorite"
+          slot="icon-only"
+          name="bookmark-outline"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="favoriteLoaded && post.isFavorite"
+          slot="icon-only"
+          name="bookmarks"
+        ></ion-icon>
+
+        <ion-spinner *ngIf="!favoriteLoaded"></ion-spinner>
+      </ion-button>
+    </div>
+  </ion-item>
+
+  <ion-row
+    class="ion-align-items-center"
+    *ngIf="
+      post.likesCount > 0 && post.offersCount == 0 && post.discussionsCount == 0
+    "
+  >
+    <p *ngIf="post.likesCount == 1" class="likes-count">
+      {{ post.likesCount }} like
+    </p>
+
+    <p *ngIf="post.likesCount > 1" class="likes-count">
+      {{ post.likesCount }} likes
+    </p>
+  </ion-row>
+
+  <ion-row
+    class="ion-align-items-center"
+    *ngIf="post.offersCount > 0 && post.discussionsCount == 0"
+  >
+    <p *ngIf="post.offersCount == 1" class="offers-count">
+      {{ post.offersCount }} offer
+    </p>
+
+    <p *ngIf="post.offersCount > 1" class="offers-count">
+      {{ post.offersCount }} offers
+    </p>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center" *ngIf="post.discussionsCount > 0">
+    <p *ngIf="post.discussionsCount == 1" class="discussions-count">
+      {{ post.discussionsCount }} business discussion
+    </p>
+
+    <p *ngIf="post.discussionsCount > 1" class="discussions-count">
+      {{ post.discussionsCount }} business discussions
+    </p>
+  </ion-row>
+</div>
+
+<div *ngIf="isProfile">
+  <ion-item no-padding class="post-buttons" lines="none">
+    <div slot="start">
+      <ion-button fill="clear" (click)="editPost()">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" (click)="deletePost()">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div slot="end">
+      <ion-button fill="clear" *ngIf="post.isPublished" (click)="unpublish()">
+        <p class="published">Published</p>
+      </ion-button>
+
+      <ion-button fill="clear" *ngIf="!post.isPublished" (click)="publish()">
+        <p class="unpublished">Unpublished</p>
+      </ion-button>
+
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="pie-chart"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-item>
+</div>

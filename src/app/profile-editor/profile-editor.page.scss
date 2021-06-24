@@ -1,0 +1,16 @@
+.user-image {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
+}
+
+.location-label {
+  font-size: 14px;
+}
+
+#map {
+  margin: 0 16px;
+  border-radius: 16px;
+  height: calc(100vw - 32px);
+  width: calc(100vw - 32px);
+}

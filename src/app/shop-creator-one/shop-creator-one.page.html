@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Shop
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="shop.name == '' || shop.description == '' || shop.pictureURL == ''"
+        (click)="next()"
+      >
+        Next
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="stacked">
+      Description
+    </ion-label>
+
+    <ion-textarea rows="6" [(ngModel)]="shop.description"></ion-textarea>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        *ngIf="shop.pictureURL"
+        class="shop-image"
+        src="{{ shop.pictureURL }}"
+      />
+
+      <img
+        *ngIf="!shop.pictureURL"
+        class="shop-image"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-input
+        id="shop-picture-input"
+        type="file"
+        accept="image/*"
+      ></ion-input>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>Business discussions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="discussionsLoaded && discussions.length == 0">
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <p>There are no business discussions to be shown.</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-icon class="no-discussions-icon" name="images-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-list *ngIf="discussionsLoaded && discussions.length > 0">
+    <ion-list-header>
+      Messages
+    </ion-list-header>
+
+    <discussion
+      *ngFor="let discussion of discussions"
+      [discussion]="discussion"
+    ></discussion>
+  </ion-list>
+</ion-content>

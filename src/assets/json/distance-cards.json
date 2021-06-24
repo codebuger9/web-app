@@ -1,0 +1,34 @@
+{
+  "distanceCards": [
+    {
+      "id": 1,
+      "pictureURL": "assets/images/distance cards/300km.png",
+      "type": 1
+    },
+    {
+      "id": 2,
+      "pictureURL": "assets/images/distance cards/500km.png",
+      "type": 1
+    },
+    {
+      "id": 3,
+      "pictureURL": "assets/images/distance cards/800km.png",
+      "type": 1
+    },
+    {
+      "id": 4,
+      "pictureURL": "assets/images/distance cards/2000km.png",
+      "type": 1
+    },
+    {
+      "id": 5,
+      "pictureURL": "assets/images/distance cards/10000km.png",
+      "type": 1
+    },
+    {
+      "id": 6,
+      "pictureURL": "assets/images/distance cards/20000km.png",
+      "type": 1
+    }
+  ]
+}

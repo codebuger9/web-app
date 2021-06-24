@@ -1,0 +1,34 @@
+{
+  "publicationCards": [
+    {
+      "id": 1,
+      "pictureURL": "assets/images/publication cards/card-1.png",
+      "type": 0
+    },
+    {
+      "id": 2,
+      "pictureURL": "assets/images/publication cards/card-2.png",
+      "type": 0
+    },
+    {
+      "id": 3,
+      "pictureURL": "assets/images/publication cards/card-3.png",
+      "type": 0
+    },
+    {
+      "id": 4,
+      "pictureURL": "assets/images/publication cards/card-5.png",
+      "type": 0
+    },
+    {
+      "id": 5,
+      "pictureURL": "assets/images/publication cards/card-8.png",
+      "type": 0
+    },
+    {
+      "id": 6,
+      "pictureURL": "assets/images/publication cards/card-13.png",
+      "type": 0
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<div *ngIf="mallsLoaded && mallGroups.length == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p>There are no malls to be shown.</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-icon class="no-malls-icon" name="home-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="mallsLoaded && mallGroups.length > 0">
+  <ion-row class="ion-align-items-center" *ngFor="let mallGroup of mallGroups">
+    <ion-col class="ion-text-center" size="6" *ngFor="let mall of mallGroup">
+      <ion-card>
+        <ion-row class="ion-align-items-center" (click)="goToMall(mall)">
+          <ion-col class="ion-text-center">
+            <img *ngIf="mall.pictureURL" src="{{ mall.pictureURL }}" />
+
+            <img
+              *ngIf="!mall.pictureURL"
+              src="..\..\assets\images\shop-front.jpg"
+            />
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center" (click)="goToMall(mall)">
+          <ion-col>
+            <p class="mall-name">{{ mall.name }}</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-item lines="none">
+          <ion-button slot="start" fill="clear">
+            <ion-icon name="home-outline"></ion-icon>
+            <p class="shops-count">{{ mall.shopsCount }} shops</p>
+          </ion-button>
+
+          <ion-button slot="end" fill="clear" (click)="addMallToFavorites()">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</div>

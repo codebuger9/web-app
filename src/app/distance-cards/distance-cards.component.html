@@ -1,0 +1,45 @@
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">Distance to filter products, services and requests!</p>
+  </ion-col>
+</ion-row>
+
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[0]"></distance-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[1]"></distance-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[2]"></distance-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[3]"></distance-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[4]"></distance-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <distance-card [card]="cardsService.distanceCards[5]"></distance-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">
+      Select the default card to filter posts. The 300 kilometers distance card
+      will remain free and the 20 000 kilometers distance card is free for one
+      year.
+    </p>
+  </ion-col>
+</ion-row>

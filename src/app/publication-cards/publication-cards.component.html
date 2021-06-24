@@ -1,0 +1,44 @@
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">Get coins on every new listing!</p>
+  </ion-col>
+</ion-row>
+
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[0]"></publication-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[1]"></publication-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[2]"></publication-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[3]"></publication-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[4]"></publication-card>
+    </ion-col>
+
+    <ion-col class="ion-text-center" size="4">
+      <publication-card [card]="cardsService.publicationCards[5]"></publication-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-row class="ion-align-items-center">
+  <ion-col class="ion-text-center">
+    <p class="info">
+      Publishing cards unlock with the number of new listings published and
+      locks again if there is no listing after 24 hours.
+    </p>
+  </ion-col>
+</ion-row>

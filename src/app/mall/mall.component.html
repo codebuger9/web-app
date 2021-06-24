@@ -1,0 +1,60 @@
+<ion-card>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p class="mall-title">{{ mall.name }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        class="mall-image"
+        *ngIf="mall.pictureURL"
+        src="{{ mall.pictureURL }}"
+      />
+
+      <img
+        class="mall-image"
+        *ngIf="!mall.pictureURL"
+        src="..\..\assets\images\shop-front.jpg"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none" *ngIf="isProfile && canEdit">
+    <ion-button slot="start" fill="clear" (click)="deleteMall()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="start" fill="clear" (click)="editMall()">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="end" fill="clear" (click)="showMallStats()">
+      <ion-icon name="pie-chart-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-item lines="none" *ngIf="!isProfile">
+    <ion-button slot="start" fill="clear">
+      <ion-icon name="home-outline"></ion-icon>
+      <p class="shops-count" *ngIf="mall.shopsCount == 1">
+        {{ mall.shopsCount }} shop
+      </p>
+
+      <p class="shops-count" *ngIf="mall.shopsCount > 1">
+        {{ mall.shopsCount }} shops
+      </p>
+    </ion-button>
+
+    <ion-button slot="end" fill="clear" (click)="addMallToFavorites()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-left">
+      <p class="mall-description">{{ mall.description }}</p>
+    </ion-col>
+  </ion-row>
+</ion-card>

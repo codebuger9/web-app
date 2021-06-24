@@ -1,0 +1,33 @@
+<div *ngIf="offersSentLoaded && offersSent.length == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p>No offers have been made yet.</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-icon class="no-posts-icon" name="cash-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="offersSentLoaded && offersSent.length > 0">
+  <ion-item *ngFor="let offerSent of offersSent">
+    <ion-thumbnail slot="start">
+      <img src="{{ offerSent.postPictureURL }}" />
+    </ion-thumbnail>
+
+    <ion-row>
+      <ion-col>
+        <p class="post-title">{{ offerSent.postTitle }}</p>
+
+        <p class="offer">
+          Your offer: {{ offerSent.offer.value }}
+          {{ offerSent.offer.user.currency }} &#x25cf;
+          {{ offerSent.offer.timeAgo }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</div>

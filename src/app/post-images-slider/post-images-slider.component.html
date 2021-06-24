@@ -1,0 +1,27 @@
+<figure>
+  <div>
+    <ion-button
+      *ngIf="post.pictureURLs.length > 1"
+      class="picture-index"
+      fill="clear"
+    >
+      {{ post.pictureIndex }}/{{ post.pictureURLs.length }}
+    </ion-button>
+
+    <ion-slides
+      #slides
+      [options]="slideOpts"
+      (ionSlideDidChange)="onSlideChange(post)"
+      (ionSlideDoubleTap)="postDoubleClick()"
+      pager="{{ post.pictureURLs.length > 1 }}"
+    >
+      <ion-slide *ngFor="let pictureUrl of post.pictureURLs">
+        <img class="post-picture" [src]="pictureUrl" alt="" />
+      </ion-slide>
+    </ion-slides>
+
+    <ion-button class="heart-button" style="display: none;" fill="clear">
+      <ion-icon slot="icon-only" name="heart-white"></ion-icon>
+    </ion-button>
+  </div>
+</figure>

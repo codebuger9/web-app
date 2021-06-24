@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="type == 'shops'">Shops</ion-title>
+    <ion-title *ngIf="type == 'malls'">Malls</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment scrollable [(ngModel)]="type">
+    <ion-segment-button value="shops">
+      Shops
+    </ion-segment-button>
+
+    <ion-segment-button value="malls">
+      Malls
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'shops'">
+      <ion-row class="ion-align-items-center">
+        <ion-col class="ion-text-center">
+          <ion-segment [(ngModel)]="shopDisplayType">
+            <ion-segment-button value="list">
+              <ion-icon name="list-outline"></ion-icon>
+            </ion-segment-button>
+
+            <ion-segment-button value="grid">
+              <ion-icon name="apps-outline"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+
+      <div [ngSwitch]="shopDisplayType">
+        <div *ngSwitchCase="'list'">
+          <shops-list></shops-list>
+        </div>
+
+        <div *ngSwitchCase="'grid'">
+          <shops-grid></shops-grid>
+        </div>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'malls'">
+      <malls-grid></malls-grid>
+    </div>
+  </div>
+</ion-content>

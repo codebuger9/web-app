@@ -1,0 +1,51 @@
+<ion-item>
+  <ion-avatar slot="start" (click)="goToUserProfile(notification.user)">
+    <img src="{{ notification.user.pictureURL }}" />
+  </ion-avatar>
+
+  <div class="notification-content">
+    <ion-row *ngIf="notification.type === 0" class="ion-align-items-center">
+      <p>
+        <strong (click)="goToUserProfile(notification.user)">{{
+          notification.user.name
+        }}</strong>
+        liked your post.
+
+        <span class="time-ago">&nbsp;{{ notification.timeAgo }}</span>
+      </p>
+    </ion-row>
+
+    <div *ngIf="notification.type === 1">
+      <ion-row class="ion-align-items-center">
+        <p>
+          <strong (click)="goToUserProfile(notification.user)">{{
+            notification.user.name
+          }}</strong>
+
+          commented: "{{ notification.commentContent }}".
+          <span class="time-ago">&nbsp;{{ notification.timeAgo }}</span>
+        </p>
+      </ion-row>
+    </div>
+
+    <div *ngIf="notification.type === 2">
+      <ion-row class="ion-align-items-center">
+        <p>
+          <strong (click)="goToUserProfile(notification.user)">{{
+            notification.user.name
+          }}</strong>
+          sent you an offer: {{ authService.user.currency }}
+          {{ notification.offerValue }}.
+          <span class="time-ago">&nbsp;{{ notification.timeAgo }}</span>
+        </p>
+      </ion-row>
+    </div>
+  </div>
+
+  <img
+    slot="end"
+    class="post-thumbnail"
+    src="{{ notification.postPictureURL }}"
+    (click)="goToPost(notification.postId)"
+  />
+</ion-item>

@@ -1,0 +1,58 @@
+<ion-grid class="three-col-grid">
+  <ion-row>
+    <div (click)="goToPost(posts[0])" class="oneThirdSquare">
+      <img src="{{ posts[0].pictureUrls[0] }}" alt="" />
+    </div>
+    <div (click)="goToPost(posts[1])" class="oneThirdSquare">
+      <img src="{{ posts[1].pictureUrls[0] }}" alt="" />
+    </div>
+    <div (click)="goToPost(posts[2])" class="oneThirdSquare">
+      <img src="{{ posts[2].pictureUrls[0] }}" alt="" />
+    </div>
+    <div (click)="goToPost(posts[3])" class="oneThirdSquare">
+      <img src="{{ posts[3].pictureUrls[0] }}" alt="" />
+    </div>
+    <div (click)="goToPost(posts[4])" class="oneThirdSquare">
+      <img src="{{ posts[4].pictureUrls[0] }}" alt="" />
+    </div>
+    <div (click)="goToPost(posts[5])" class="oneThirdSquare">
+      <img src="{{ posts[5].pictureUrls[0] }}" alt="" />
+    </div>
+  </ion-row>
+
+  <ion-row *ngIf="leftAlign">
+    <ion-col size="4">
+      <div (click)="goToPost(posts[6])" class="oneThirdSquare">
+        <img src="{{ posts[6].pictureUrls[0] }}" alt="" />
+      </div>
+
+      <div (click)="goToPost(posts[7])" class="oneThirdSquare">
+        <img src="{{ posts[7].pictureUrls[0] }}" alt="" />
+      </div>
+    </ion-col>
+
+    <ion-col size="8">
+      <div (click)="goToPost(posts[8])" class="twoThirdSquare">
+        <img src="{{ posts[8].pictureUrls[0] }}" alt="" />
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="!leftAlign">
+    <ion-col size="8">
+      <div (click)="goToPost(posts[6])" class="twoThirdSquare">
+        <img src="{{ posts[6].pictureUrls[0] }}" alt="" />
+      </div>
+    </ion-col>
+
+    <ion-col size="4">
+      <div (click)="goToPost(posts[7])" class="oneThirdSquare">
+        <img src="{{ posts[7].pictureUrls[0] }}" alt="" />
+      </div>
+
+      <div (click)="goToPost(posts[8])" class="oneThirdSquare">
+        <img src="{{ posts[8].pictureUrls[0] }}" alt="" />
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

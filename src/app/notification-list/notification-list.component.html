@@ -1,0 +1,11 @@
+<ion-list lines="none">
+  <ion-list-header>
+    <ion-label>{{ title }}</ion-label>
+  </ion-list-header>
+
+  <notification
+    *ngFor="let notification of notifications"
+    [notification]="notification"
+  >
+  </notification>
+</ion-list>

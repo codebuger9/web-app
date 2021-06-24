@@ -1,0 +1,17 @@
+<ion-card [ngClass]="{selected: isSelected}">
+  <p class="pack-name">{{ pack.name }}</p>
+  <p class="pack-listings">{{ pack.listingsCount }} listings</p>
+
+  <img [src]="pack.pictureURL" />
+
+  <p class="pack-expiry">{{ pack.expiryDays }}-days expiry</p>
+
+  <div *ngIf="!isSelected">
+    <p class="pack-price" *ngIf="pack.price == 0">Free</p>
+    <p class="pack-price" *ngIf="pack.price > 0">{{ packPrice }}</p>
+  </div>
+
+  <div *ngIf="isSelected">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+  </div>
+</ion-card>

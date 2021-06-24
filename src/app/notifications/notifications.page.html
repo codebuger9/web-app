@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div
+    *ngIf="notificationsLoaded && todayNotifications.length == 0 && weeklyNotifications.length == 0 && monthlyNotifications.length == 0 && olderNotifications.length == 0"
+  >
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <p>There are no notifications to be shown.</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-icon
+          class="no-notifications-icon"
+          name="notifications-outline"
+        ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <notification-list
+    [title]="'Today'"
+    [notifications]="todayNotifications"
+    *ngIf="notificationsLoaded && todayNotifications.length > 0"
+  ></notification-list>
+
+  <notification-list
+    [title]="'This week'"
+    [notifications]="weeklyNotifications"
+    *ngIf="notificationsLoaded && weeklyNotifications.length > 0"
+  ></notification-list>
+
+  <notification-list
+    [title]="'This month'"
+    [notifications]="monthlyNotifications"
+    *ngIf="notificationsLoaded && monthlyNotifications.length > 0"
+  ></notification-list>
+
+  <notification-list
+    [title]="'Older'"
+    [notifications]="olderNotifications"
+    *ngIf="notificationsLoaded && olderNotifications.length > 0"
+  ></notification-list>
+</ion-content>

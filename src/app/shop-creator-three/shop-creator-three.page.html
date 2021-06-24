@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Shop
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="shop.companyName == '' || shop.address == '' || shop.employeesCount <= 0"
+        (click)="publish()"
+      >
+        Publish
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Company
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.companyName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Address
+      </ion-label>
+
+      <ion-textarea rows="2" [(ngModel)]="shop.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Employees
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.employeesCount"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

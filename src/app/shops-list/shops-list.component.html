@@ -1,0 +1,17 @@
+<div *ngIf="shopsLoaded && shops.length == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p>There are no shops to be shown.</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-icon class="no-shops-icon" name="home-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="shopsLoaded && shops.length > 0">
+  <shop *ngFor="let shop of shops" [isProfile]="false" [shop]="shop"> </shop>
+</div>

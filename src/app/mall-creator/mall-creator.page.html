@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Mall
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="mall.name == '' || mall.pictureURL == ''"
+        (click)="publish()"
+      >
+        Publish
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="mall.name"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        *ngIf="mall.pictureURL"
+        class="mall-image"
+        src="{{ mall.pictureURL }}"
+      />
+
+      <img
+        *ngIf="!mall.pictureURL"
+        class="mall-image"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-input
+        id="mall-picture-input"
+        type="file"
+        accept="image/*"
+      ></ion-input>
+    </ion-col>
+  </ion-row>
+</ion-content>

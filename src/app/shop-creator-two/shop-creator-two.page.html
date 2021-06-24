@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Shop
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="businessType == undefined || shopType == undefined"
+        (click)="next()"
+      >
+        Next
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Business Type
+      </ion-label>
+
+      <ion-radio-group [(ngModel)]="businessType">
+        <ion-item lines="none">
+          <ion-label>Shop</ion-label>
+          <ion-radio slot="end" value="0"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Office</ion-label>
+          <ion-radio slot="end" value="1"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>B2B Shop</ion-label>
+          <ion-radio slot="end" value="2"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Type
+      </ion-label>
+
+      <ion-radio-group [(ngModel)]="shopType">
+        <ion-item lines="none">
+          <ion-label>Products</ion-label>
+          <ion-radio slot="end" value="0"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Services</ion-label>
+          <ion-radio slot="end" value="1"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Both</ion-label>
+          <ion-radio slot="end" value="2"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Mall
+      </ion-label>
+
+      <ion-select
+        (ionChange)="mallSelected($event)"
+        *ngIf="mallsLoaded"
+        okText="Ok"
+        cancelText="Cancel"
+      >
+        <ion-select-option *ngFor="let mall of malls" [value]="mall.id">
+          {{ mall.name }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

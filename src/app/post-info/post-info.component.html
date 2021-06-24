@@ -1,0 +1,41 @@
+<div class="post-info">
+  <ion-row class="ion-align-items-center">
+    <p class="title">
+      {{ post.title }}
+    </p>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <p class="description">
+      <span
+        *ngIf="
+          post.priceRange.lowerValue != undefined &&
+          post.priceRange.higherValue != undefined &&
+          post.priceRange.lowerValue != 0 &&
+          post.priceRange.higherValue != 0
+        "
+        class="price-range"
+        >{{ post.user.currency }} {{ post.priceRange.lowerValue }} -
+        {{ post.priceRange.higherValue }}
+        &#x25cf;
+      </span>
+
+      <span *ngIf="post.type == 0" class="product-type">Product</span>
+      <span *ngIf="post.type == 1" class="product-type">Service</span>
+      <span *ngIf="post.type == 2" class="product-type">Request</span>
+      &#x25cf;
+
+      <span class="distance">{{ post.distance }} kms</span>
+    </p>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <p class="description">
+      {{ post.description }}
+    </p>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <p class="hours-ago">{{ post.timeAgo }}</p>
+  </ion-row>
+</div>

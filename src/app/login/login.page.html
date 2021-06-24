@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="isLogin">Log In</ion-title>
+    <ion-title *ngIf="!isLogin">Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isLogin">
+    <ion-item class="email">
+      <ion-label position="stacked">
+        <ion-icon name="mail-outline"></ion-icon>
+        Email
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="loginData.email"></ion-input>
+    </ion-item>
+
+    <ion-item class="password">
+      <ion-label position="stacked">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        Password
+      </ion-label>
+
+      <ion-input type="password" [(ngModel)]="loginData.password"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-button
+          class="signin-button"
+          expand="full"
+          shape="round"
+          (click)="signIn()"
+          >LOG IN</ion-button
+        >
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        Don't have an account?
+        <ion-button (click)="toggleLogin()">Sign up</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="!isLogin">
+    <ion-item>
+      <ion-label position="stacked">
+        Name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="registerData.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        User name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="registerData.userName"></ion-input>
+    </ion-item>
+
+    <ion-item class="email">
+      <ion-label position="stacked">
+        <ion-icon name="mail-outline"></ion-icon>
+        Email
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="registerData.email"></ion-input>
+    </ion-item>
+
+    <ion-item class="password">
+      <ion-label position="stacked">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        Password
+      </ion-label>
+
+      <ion-input
+        type="password"
+        [(ngModel)]="registerData.password"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="password">
+      <ion-label position="stacked">
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        Confirm password
+      </ion-label>
+
+      <ion-input
+        type="password"
+        [(ngModel)]="registerData.password2"
+      ></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        <ion-button
+          class="signup-button"
+          expand="full"
+          shape="round"
+          (click)="signUp()"
+        >
+          SIGN UP
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-text-center">
+        Already have an account?
+        <ion-button (click)="toggleLogin()">Log in</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

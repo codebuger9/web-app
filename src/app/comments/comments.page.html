@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Comments</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row
+    *ngIf="commentsLoaded && comments.length == 0"
+    class="no-comments-row ion-align-items-center"
+  >
+    <ion-col class="ion-text-center">
+      <p>There are no comments on this post.</p>
+      <p class="first-comment">Be the first one to comment!</p>
+    </ion-col>
+  </ion-row>
+
+  <div *ngIf="commentsLoaded && comments.length > 0" class="comments-container">
+    <ion-item *ngFor="let comment of comments" no-padding lines="none">
+      <ion-avatar slot="start">
+        <img
+          *ngIf="comment.user.pictureURL"
+          src="{{ comment.user.pictureURL }}"
+        />
+
+        <img
+          *ngIf="!comment.user.pictureURL"
+          src="..\..\assets\icon\favicon.png"
+        />
+      </ion-avatar>
+
+      <div>
+        <ion-row class="ion-align-items-center">
+          <p class="username">
+            {{ comment.user.name }}
+          </p>
+        </ion-row>
+
+        <ion-row class="ion-align-items-center">
+          <p class="comment">
+            {{ comment.content }}
+          </p>
+        </ion-row>
+      </div>
+
+      <p slot="end" class="time-ago">
+        {{ comment.timeAgo }}
+      </p>
+    </ion-item>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img *ngIf="user.pictureURL" src="{{ user.pictureURL }}" />
+      <img *ngIf="!user.pictureURL" src="..\..\assets\icon\favicon.png" />
+    </ion-avatar>
+
+    <ion-textarea
+      [(ngModel)]="commentContent"
+      rows="1"
+      placeholder="Add a comment"
+    ></ion-textarea>
+
+    <ion-button slot="end" fill="clear" (click)="addComment()">
+      <ion-icon *ngIf="!addingComment" name="send-outline"></ion-icon>
+      <ion-spinner *ngIf="addingComment"></ion-spinner>
+    </ion-button>
+  </ion-item>
+</ion-footer>

@@ -1,0 +1,29 @@
+ion-toolbar {
+  ion-button {
+    ion-icon {
+      font-size: 22px;
+    }
+
+    ion-badge {
+      position: absolute;
+      top: 0.1rem;
+      right: -0.1rem;
+      --padding-top: 2px;
+      --padding-bottom: 2px;
+      --padding-end: 4px;
+      --padding-start: 4px;
+      font-size: 10px;
+
+      & ~ ion-icon {
+        margin-inline-end: 0.2rem;
+      }
+    }
+  }
+}
+
+ion-title {
+  img {
+    margin-top: 5px;
+    max-height: 35px;
+  }
+}

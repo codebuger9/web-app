@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>New Post</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button class="next" (click)="share()"> Share </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-row>
+      <ion-col text-center size="3">
+        <img id="picture" src="{{ pictureUrl }}" />
+      </ion-col>
+
+      <ion-col size="9">
+        <ion-textarea
+          placeholder="Write a caption..."
+          [(ngModel)]="postContent"
+          rows="3"
+        ></ion-textarea>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-item>
+    <p>Tag People</p>
+    <ion-icon size="small" slot="end" name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <p>Add Location</p>
+    <ion-icon size="small" slot="end" name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <br />
+
+  <ion-list>
+    <ion-item lines="none">
+      <p>Facebook</p>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item lines="none">
+      <p>Twitter</p>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <p>Tumblr</p>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

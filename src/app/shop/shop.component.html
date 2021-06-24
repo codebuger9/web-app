@@ -1,0 +1,69 @@
+<ion-card>
+  <ion-item class="user-info" lines="none" (click)="goToUserProfile(shop.user)">
+    <ion-avatar slot="start">
+      <img *ngIf="shop.user.pictureURL" src="{{ shop.user.pictureURL }}" />
+      <img *ngIf="!shop.user.pictureURL" src="..\..\assets\icon\favicon.png" />
+    </ion-avatar>
+
+    <p>{{ shop.user.name }}</p>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p class="shop-title">{{ shop.name }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        class="shop-image"
+        *ngIf="shop.pictureURL"
+        src="{{ shop.pictureURL }}"
+      />
+
+      <img
+        class="shop-image"
+        *ngIf="!shop.pictureURL"
+        src="..\..\assets\images\shop-front.jpg"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none" *ngIf="isProfile && canEdit">
+    <ion-button slot="start" fill="clear" (click)="deleteShop()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="start" fill="clear" (click)="editShop()">
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="end" fill="clear" (click)="showShopStats()">
+      <ion-icon name="pie-chart-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-left">
+      <p class="shop-description">{{ shop.description }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none" *ngIf="!isProfile">
+    <ion-button slot="start" fill="clear">
+      <ion-icon name="images-outline"></ion-icon>
+      <p class="posts-count" *ngIf="shop.postsCount == 1">
+        {{ shop.postsCount }} post
+      </p>
+
+      <p class="posts-count" *ngIf="!shop.postsCount || shop.postsCount > 1">
+        {{ shop.postsCount }} posts
+      </p>
+    </ion-button>
+
+    <ion-button slot="end" fill="clear" (click)="addMallToFavorites()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-card>

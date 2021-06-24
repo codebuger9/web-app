@@ -1,0 +1,26 @@
+<ion-tabs (ionTabsDidChange)="onTabChanged($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="house"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="openPostEditor()">
+      <ion-icon name="add-post"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="notifications">
+      <ion-icon name="heart"></ion-icon>
+      <ion-badge color="primary" *ngIf="unreadNotificationsCount > 0"
+        >{{ unreadNotificationsCount }}</ion-badge
+      >
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="user"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

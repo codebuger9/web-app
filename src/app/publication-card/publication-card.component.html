@@ -1,0 +1,6 @@
+<ion-card>
+  <img [src]="card.pictureURL" />
+
+  <ion-icon *ngIf="card.isLocked" name="lock-closed-outline"></ion-icon>
+  <ion-icon *ngIf="!card.isLocked" name="lock-open-outline"></ion-icon>
+</ion-card>

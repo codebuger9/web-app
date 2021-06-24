@@ -1,0 +1,17 @@
+<ion-item (click)="goToOffersList()">
+  <ion-thumbnail slot="start">
+    <img src="{{ post.pictureURLs[0] }}" />
+  </ion-thumbnail>
+
+  <ion-row>
+    <ion-col>
+      <p class="post-title">{{ post.title }}</p>
+
+      <p class="last-offer">
+        Last offer: {{ post.lastOffer.value }}
+        {{ user.currency }} &#x25cf;
+        {{ offerTimeAgo }}
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-item>

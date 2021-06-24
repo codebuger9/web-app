@@ -1,0 +1,45 @@
+.no-reviews-icon {
+  height: 50vw;
+  width: 50vw;
+}
+
+.reviews-container {
+  margin-top: 10px;
+
+  .add-review-button {
+    margin-block-start: 10px;
+    margin-block-end: 20px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
+  ion-item {
+    margin-bottom: 5px;
+
+    p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+
+    .comment {
+      color: #666;
+      margin-inline-end: 5px;
+    }
+
+    .time-ago {
+      margin-top: 5px;
+      font-size: 8px;
+      text-transform: uppercase;
+    }
+
+    ion-button {
+      ion-icon {
+        font-size: 12px;
+      }
+    }
+  }
+}

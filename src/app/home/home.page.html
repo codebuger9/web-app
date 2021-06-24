@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openShowAndMalls()">
+        <ion-icon
+          slot="icon-only"
+          src="assets/custom-ion-icons/a-mussel-svgrepo-noire.svg"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      Istabrag
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openDiscussions()">
+        <ion-badge *ngIf="unreadDiscussionsCount > 0" color="primary"
+          >{{ unreadDiscussionsCount }}</ion-badge
+        >
+        <ion-icon slot="icon-only" name="chatbubbles-outline"> </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <stories></stories> -->
+
+  <ion-segment scrollable [(ngModel)]="type">
+    <ion-segment-button value="products">
+      Products
+    </ion-segment-button>
+
+    <ion-segment-button value="services">
+      Services
+    </ion-segment-button>
+
+    <ion-segment-button value="requests">
+      Requests
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'products'">
+      <posts-slider [isProfile]="false" [postType]="0"></posts-slider>
+    </div>
+
+    <div *ngSwitchCase="'services'">
+      <posts-slider [isProfile]="false" [postType]="1"></posts-slider>
+    </div>
+
+    <div *ngSwitchCase="'requests'">
+      <posts-slider [isProfile]="false" [postType]="2"></posts-slider>
+    </div>
+  </div>
+</ion-content>

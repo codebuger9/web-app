@@ -1,0 +1,28 @@
+ion-card {
+  margin-block-start: 5px;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding: 0;
+
+  .mall-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .mall-image {
+    width: 90vw;
+    border-radius: 20px;
+  }
+
+  .mall-description {
+    font-size: 13px;
+    padding: 0 12px;
+  }
+
+  .shops-count {
+    margin-inline-start: 8px;
+    font-weight: bold;
+  }
+}

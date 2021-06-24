@@ -1,0 +1,10 @@
+<ion-card>
+  <p class="coin-name">{{ coin.name }}</p>
+
+  <img [src]="coin.pictureURL" />
+
+  <p class="coin-count" *ngIf="coin.type == 0">{{ coin.valueCount }} coins</p>
+  <p class="coin-count" *ngIf="coin.type == 1">{{ coin.valueCount }} gems</p>
+
+  <p class="coin-price">{{ coinPrice }}</p>
+</ion-card>

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>Likes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item
+    class="user"
+    lines="none"
+    *ngFor="let user of notification.userLikes"
+  >
+    <ion-avatar (click)="goToProfile(user)" slot="start">
+      <img src="{{ user.pictureUrl }}" />
+    </ion-avatar>
+
+    <ion-row (click)="goToProfile(user)">
+      <ion-col>
+        <p class="alias">{{ user.alias }}</p>
+        <p>{{ user.name }}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row slot="end">
+      <ion-col text-center>
+        <ion-button *ngIf="!user.isFollowing">
+          Follow
+        </ion-button>
+
+        <ion-button *ngIf="user.isFollowing" fill="outline">
+          Following
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-content>

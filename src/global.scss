@@ -1,0 +1,86 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+.redText {
+  --color: red;
+}
+
+.heartBeat {
+  animation-duration: 1s;
+}
+
+.shareModal {
+  --height: 70%;
+  --border-radius: 25px;
+  align-items: flex-end;
+}
+
+ion-button {
+  --color: black;
+  --color-activated: gray;
+}
+
+.divider {
+  margin: 0 16px;
+  border: 0.5px solid lightgray;
+}
+
+.three-col-grid {
+  padding: 0;
+
+  ion-col {
+    padding: 0;
+  }
+}
+
+.oneThirdSquare {
+  width: 33.3333333333333333333333333333333333333vw;
+  height: 33.3333333333333333333333333333333333333vw;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+
+.twoThirdSquare {
+  width: 66.6666666666666666666666666666666666666vw;
+  height: 66.6666666666666666666666666666666666666vw;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+
+.oneQuarterSquare {
+  width: 25vw;
+  height: 25vw;
+  overflow: hidden;
+  border: 1px solid lightgray;
+}
+
+ion-tab-button {
+  --color: gray;
+  --color-selected: black;
+}
+
+.slides-ios {
+  --bullet-background: black;
+  --bullet-background-active: white;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "927442648462",
+    "firebase_url": "https://istabrag-ac35c.firebaseio.com",
+    "project_id": "istabrag-ac35c",
+    "storage_bucket": "istabrag-ac35c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927442648462:android:9f82919e0e4efc9fd7f8df",
+        "android_client_info": {
+          "package_name": "io.istabrag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927442648462-saatj8bd0f5n7snhh2f7r6hb1377ed3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt1ArnP4VEMDm_gOPCfjIfVjVsDK8KVTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927442648462-saatj8bd0f5n7snhh2f7r6hb1377ed3t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

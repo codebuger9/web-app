@@ -1,0 +1,36 @@
+.post-buttons {
+  --padding-start: 0;
+
+  ion-button {
+    margin: 0;
+
+    .published {
+      color: rgb(27, 206, 27);
+    }
+
+    .unpublished {
+      color: red;
+    }
+
+    ion-icon {
+      height: 20px;
+      width: 20px;
+    }
+
+    ion-spinner {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.likes-count,
+.offers-count,
+.discussions-count {
+  margin-block-start: 0;
+  margin-block-end: 8px;
+  margin-inline-start: 12px;
+  margin-inline-end: 0;
+  font-weight: bold;
+  font-size: 11px;
+}

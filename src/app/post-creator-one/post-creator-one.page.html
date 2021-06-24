@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>
+      New Post
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        [disabled]="!postType 
+        || (post.type == 0 && post.pictureURLs.length == 0) 
+        || ((post.type == 1 || post.type == 2) && (post.title == '' || post.description == ''))"
+        (click)="next()"
+      >
+        Next
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">
+      Type
+    </ion-label>
+
+    <ion-radio-group
+      [(ngModel)]="postType"
+      (ionChange)="postTypeChanged($event)"
+    >
+      <ion-item lines="none">
+        <ion-label>Product</ion-label>
+        <ion-radio slot="end" value="0"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Service</ion-label>
+        <ion-radio slot="end" value="1"></ion-radio>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>Request</ion-label>
+        <ion-radio slot="end" value="2"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-item>
+
+  <div *ngIf="postType && postType == 0">
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        Pictures
+      </ion-label>
+
+      <ion-list id="post-pictures-list"> </ion-list>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        id="post-picture-input"
+        type="file"
+        accept="image/*"
+      ></ion-input>
+    </ion-item>
+  </div>
+
+  <div *ngIf="postType && (postType == 1 || postType == 2)">
+    <ion-item>
+      <ion-label position="stacked">
+        Title
+      </ion-label>
+
+      <ion-input
+        type="text"
+        [(ngModel)]="post.title"
+        placeholder="Enter title"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Description
+      </ion-label>
+
+      <ion-textarea
+        rows="4"
+        [(ngModel)]="post.description"
+        placeholder="Enter description"
+      ></ion-textarea>
+    </ion-item>
+  </div>
+</ion-content>

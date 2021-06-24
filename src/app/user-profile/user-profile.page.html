@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="user">
+      {{ user.name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        *ngIf="user && user.pictureURL"
+        class="user-image"
+        src="{{ user ? user.pictureURL : '' }}"
+      />
+
+      <img
+        class="user-image"
+        *ngIf="user && !user.pictureURL"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-segment scrollable [(ngModel)]="type">
+    <ion-segment-button value="reviews">
+      Reviews
+    </ion-segment-button>
+
+    <ion-segment-button value="posts">
+      Posts
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="type">
+    <div *ngSwitchCase="'reviews'">
+      <reviews [user]="user"></reviews>
+    </div>
+
+    <div *ngSwitchCase="'posts'">
+      <ion-segment
+        class="posts-segment"
+        scrollable
+        [(ngModel)]="postsDisplayType"
+      >
+        <ion-segment-button value="list">
+          <ion-icon name="list-outline"></ion-icon>
+        </ion-segment-button>
+
+        <ion-segment-button value="grid">
+          <ion-icon name="apps-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div [ngSwitch]="postsDisplayType">
+        <div *ngSwitchCase="'list'">
+          <posts-slider [isProfile]="false" [user]="user"></posts-slider>
+        </div>
+
+        <div *ngSwitchCase="'grid'">
+          <posts-grid [isProfile]="false" [user]="user"></posts-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

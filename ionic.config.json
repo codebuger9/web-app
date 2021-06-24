@@ -1,0 +1,7 @@
+{
+  "name": "Istabrag",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

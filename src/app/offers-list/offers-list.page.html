@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title>Offers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="offersLoaded">
+  <ion-item *ngFor="let offer of offers" lines="none">
+    <ion-avatar slot="start">
+      <img src="{{ offer.user.pictureURL }}" />
+    </ion-avatar>
+
+    <ion-row>
+      <ion-col>
+        <p class="user-name">{{ offer.user.name }}</p>
+
+        <p class="offer">
+          Offer: {{ offer.value }} {{ user.currency }}
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <p slot="end" class="time-ago">
+      {{ offer.timeAgo }}
+    </p>
+  </ion-item>
+</ion-content>

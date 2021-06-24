@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit shop</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        Name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Description
+      </ion-label>
+
+      <ion-textarea rows="4" [(ngModel)]="shop.description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Company
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.companyName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Address
+      </ion-label>
+
+      <ion-textarea rows="2" [(ngModel)]="shop.address"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        Employees
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="shop.employeesCount"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-button
+        [disabled]="shop.name == '' || shop.description == '' || shop.companyName == '' || shop.address == '' || shop.employeesCount <= 0"
+        (click)="updateShop()"
+        >Update shop</ion-button
+      >
+    </ion-col>
+  </ion-row>
+</ion-footer>

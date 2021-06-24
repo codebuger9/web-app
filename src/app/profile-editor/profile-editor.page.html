@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Edit profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <img
+        *ngIf="user.pictureURL"
+        class="user-image"
+        src="{{ user.pictureURL }}"
+      />
+
+      <img
+        *ngIf="!user.pictureURL"
+        class="user-image"
+        src="..\..\assets\icon\favicon.png"
+      />
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-input
+        id="user-picture-input"
+        type="file"
+        accept="image/*"
+      ></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">
+        <ion-icon name="person-outline"></ion-icon>
+        Name
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        <ion-icon name="person-outline"></ion-icon>
+        Username
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="user.userName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        <ion-icon name="mail-outline"></ion-icon>
+        Email
+      </ion-label>
+
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">
+        <ion-icon name="cash-outline"></ion-icon>
+        Currency
+      </ion-label>
+
+      <ion-select okText="Ok" cancelText="Cancel" [(ngModel)]="user.currency">
+        <ion-select-option
+          (ionChange)="currencySelected($event)"
+          *ngFor="let currency of currencyService.currencies"
+          [value]="currency.code"
+        >
+          {{ currency.name }} ({{ currency.code }})
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">
+        <ion-icon name="cube-outline"></ion-icon>
+        Pack
+      </ion-label>
+
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item-divider> </ion-item-divider>
+
+    <ion-item>
+      <ion-label position="stacked">
+        <ion-icon name="language-outline"></ion-icon>
+        Language
+      </ion-label>
+
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label class="location-label">
+        <ion-icon name="location-outline"></ion-icon>
+        Location
+      </ion-label>
+    </ion-item>
+
+    <div id="map"></div>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-button (click)="updateUser()">Update</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

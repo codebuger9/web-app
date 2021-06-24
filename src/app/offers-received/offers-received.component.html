@@ -1,0 +1,17 @@
+<div *ngIf="postsLoaded && posts.length == 0">
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <p>No offers have been made yet.</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-icon class="no-posts-icon" name="cash-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="postsLoaded && posts.length > 0">
+  <offer *ngFor="let post of posts" [post]="post"> </offer>
+</div>

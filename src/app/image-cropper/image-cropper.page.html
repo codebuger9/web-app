@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crop Image</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="done()">
+        Done
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <image-cropper
+    #imageCropper
+    *ngIf="imageBlob"
+    [imageFile]="imageBlob"
+    [aspectRatio]="1/1"
+    [autoCrop]="false"
+    [imageQuality]="50"
+    format="jpeg"
+  ></image-cropper>
+
+  <img *ngIf="croppedImage" [src]="croppedImage" />
+</ion-content>

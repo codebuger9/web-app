@@ -1,0 +1,46 @@
+<ion-item class="post-header" lines="none">
+  <ion-avatar class="shop-picture" slot="start" (click)="goToShop(post.shop)">
+    <img *ngIf="post.shop.pictureURL" src="{{ post.shop.pictureURL }}" />
+
+    <img
+      *ngIf="!post.shop.pictureURL"
+      src="..\..\assets\images\shop-front.jpg"
+    />
+  </ion-avatar>
+
+  <ion-row class="post-header-row ion-align-items-center">
+    <ion-col class="ion-text-center">
+      <ion-row class="ion-align-items-center">
+        <p class="shop-name" (click)="goToShop(post.shop)">
+          {{ post.shop.name }}
+        </p>
+      </ion-row>
+
+      <ion-item
+        class="user-row"
+        lines="none"
+        (click)="goToUserProfile(post.user)"
+      >
+        <ion-avatar slot="start">
+          <img *ngIf="post.user.pictureURL" src="{{ post.user.pictureURL }}" />
+
+          <img
+            *ngIf="!post.user.pictureURL"
+            src="..\..\assets\icon\favicon.png"
+          />
+        </ion-avatar>
+
+        <p>{{ post.user.name }}</p>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-button
+    size="small"
+    slot="end"
+    fill="clear"
+    (click)="openPostActionSheet()"
+  >
+    <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+  </ion-button>
+</ion-item>

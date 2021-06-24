@@ -1,0 +1,21 @@
+ion-row {
+  min-height: 60px;
+}
+
+.notification-content {
+  min-height: 60px;
+  z-index: 1000;
+
+  p {
+    font-size: 13px;
+  }
+
+  .time-ago {
+    color: lightgray;
+  }
+}
+
+.post-thumbnail {
+  height: 40px;
+  width: 40px;
+}

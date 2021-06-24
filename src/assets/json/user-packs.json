@@ -1,0 +1,52 @@
+{
+  "userPacks": [
+    {
+      "id": 1,
+      "name": "Vox",
+      "listingsCount": 60,
+      "pictureURL": "assets/images/user packs/fizz-pack.png",
+      "expiryDays": 100,
+      "price": 0
+    },
+    {
+      "id": 2,
+      "name": "Star",
+      "listingsCount": 6,
+      "pictureURL": "assets/images/user packs/star-shop.png",
+      "expiryDays": 60,
+      "price": 0
+    },
+    {
+      "id": 3,
+      "name": "Tour",
+      "listingsCount": 100,
+      "pictureURL": "assets/images/user packs/tour-shop.png",
+      "expiryDays": 6,
+      "price": 0
+    },
+    {
+      "id": 4,
+      "name": "Rootshop",
+      "listingsCount": 250,
+      "pictureURL": "assets/images/user packs/root-pack-shop.png",
+      "expiryDays": 200,
+      "price": 20
+    },
+    {
+      "id": 5,
+      "name": "Shop+",
+      "listingsCount": 900,
+      "pictureURL": "assets/images/user packs/shop-plus.png",
+      "expiryDays": 660,
+      "price": 50
+    },
+    {
+      "id": 6,
+      "name": "Proshops",
+      "listingsCount": 3000,
+      "pictureURL": "assets/images/user packs/pro-pack-shops.png",
+      "expiryDays": 900,
+      "price": 100
+    }
+  ]
+}

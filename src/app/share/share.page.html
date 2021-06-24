@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        Cancel
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Share</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Search"></ion-searchbar>
+
+  <ion-item class="add-to-story" lines="none">
+    <ion-avatar slot="start">
+      <img src="{{ userService.mainUser.pictureUrl }}" />
+    </ion-avatar>
+
+    <p>Add post to your story</p>
+
+    <ion-button slot="end" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <ion-item class="user" lines="none" *ngFor="let user of users">
+    <ion-avatar slot="start">
+      <img src="{{ user.pictureUrl }}" />
+    </ion-avatar>
+
+    <ion-row>
+      <ion-col>
+        <p class="alias">{{ user.alias }}</p>
+        <p>{{ user.name }}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-checkbox (ionChange)="selectedChanged(user)" slot="end"></ion-checkbox>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col text-center>
+      <ion-button disabled="{{ sendDisable }}" (click)="closeModal()">
+        Send
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

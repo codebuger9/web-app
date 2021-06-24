@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <back-button></back-button>
+    </ion-buttons>
+
+    <ion-title *ngIf="shopLoaded">{{ shop.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <shop *ngIf="shopLoaded" [isProfile]="false" [shop]="shop"></shop>
+</ion-content>
