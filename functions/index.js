@@ -234,7 +234,7 @@ exports.updateDiscussionsCountOnNewDiscussion = functions.firestore
     var postId = context.params.postId;
 
     var updateDiscussionsCountBatch = admin.firestore().batch();
-
+// Getting the admin data
     return admin
       .firestore()
       .collection('posts')
